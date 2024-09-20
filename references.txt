@@ -1,0 +1,31 @@
+This endpoint retrieves the Landsat 8 image for the supplied location and date. The response will include the date and URL 
+to the image that is closest to the supplied date. The requested resource may not be available for the exact date in the 
+request. You can retrieve a JSON that contains the inputs you provided and a URL to the resulting image through the assets 
+endpoint. The assets endpoint no longer returns a list of potential images within your date range due to a change on the 
+Google Earth Engine API side.
+
+The cloud score was an optional calculation that returns the percentage of the queried image that is covered by clouds, but it is not available in current versions of the API. If False If HTTP Request
+
+GET https://api.nasa.gov/planetary/earth/imagery
+
+Query Parameters
+Parameter	Type	Default	Description
+lat	float	n/a	Latitude
+lon	float	n/a	Longitude
+dim	float	0.025	width and height of image in degrees
+date	YYYY-MM-DD	today	date of image; if not supplied, then the most recent image (i.e., closest to today) is returned
+cloud_score	bool	False	[NOT CURRENTLY AVAILABLE!!!!] calculate the percentage of the image covered by clouds
+api_key	string	DEMO_KEY	api.nasa.gov key for expanded usage
+Example query
+https://api.nasa.gov/planetary/earth/imagery?lon=100.75&lat=1.5&date=2014-02-01&api_key=DEMO_KEY
+
+Note that the returned object may not match the supplied date exactly. Instead, the image closest to the supplied date is returned
+
+
+NOAA Kaggle Dataset
+
+https://www.kaggle.com/datasets/noaa/hurricane-database
+
+Analysis of Carribean Data
+
+https://www.kaggle.com/code/scast3/predicting-trajectories-of-caribbean-hurricanes/edit
